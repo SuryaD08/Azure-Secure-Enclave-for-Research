@@ -2564,7 +2564,7 @@
                   "resources": [
                     {
                       "type": "Microsoft.DesktopVirtualization/hostPools",
-                      "apiVersion": "2019-12-10-preview",
+                      "apiVersion": "2024-08-08-preview",
                       "name": "[replace(variables('baseName'), '{rtype}', 'hp')]",
                       "location": "[parameters('location')]",
                       "properties": {
@@ -2632,7 +2632,7 @@
                   "outputs": {
                     "hostpoolRegistrationToken": {
                       "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2019-12-10-preview').registrationInfo.token]"
+                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-08-08-preview').registrationInfo.token]"
                     },
                     "hostpoolName": {
                       "type": "string",
