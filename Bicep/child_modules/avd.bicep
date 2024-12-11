@@ -17,7 +17,6 @@ resource hostPool 'Microsoft.DesktopVirtualization/hostPools@2024-04-03' = {
     preferredAppGroupType: 'RailApplications'
     customRdpProperty: 'drivestoredirect:s:0;audiomode:i:0;videoplaybackmode:i:1;redirectclipboard:i:0;redirectprinters:i:0;devicestoredirect:s:0;redirectcomports:i:0;redirectsmartcards:i:1;usbdevicestoredirect:s:0;enablecredsspsupport:i:1;use multimon:i:1;targetisaadjoined:i:1;'
     friendlyName: '${environment} Research Enclave Access'
-    #disable-next-line BCP037
     startVMOnConnect: true
     registrationInfo: {
       registrationTokenOperation: 'Update'
