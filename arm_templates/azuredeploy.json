@@ -2628,20 +2628,7 @@
                         "[resourceId('Microsoft.DesktopVirtualization/applicationGroups', replace(variables('baseName'), '{rtype}', 'ag'))]"
                       ]
                     }
-                  ],
-                  "outputs": {
-                    "hostpoolRegistrationToken": {
-                      "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token]",
-                      "dependsOn": [
-                        "[resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp'))]"
-                      ]
-                    },
-                    "hostpoolName": {
-                      "type": "string",
-                      "value": "[replace(variables('baseName'), '{rtype}', 'hp')]"
-                    }
-                  }
+                  ]
                 }
               },
               "dependsOn": [
