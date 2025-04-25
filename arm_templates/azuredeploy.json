@@ -2632,7 +2632,10 @@
                   "outputs": {
                     "hostpoolRegistrationToken": {
                       "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token]"
+                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token]",
+                      "dependsOn": [
+                        "[resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp'))]"
+                      ]
                     },
                     "hostpoolName": {
                       "type": "string",
