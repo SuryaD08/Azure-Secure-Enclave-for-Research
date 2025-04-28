@@ -3157,6 +3157,9 @@
                   "scope": "inner"
                 },
                 "mode": "Incremental",
+                "dependsOn" : [
+                  "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, replace(variables('baseName'), '{rtype}', 'rg')), 'Microsoft.Resources/deployments', replace(parameters('deploymentNameStructure'), '{rtype}', 'avd'))]"
+                ],
                 "parameters": {
                   "location": {
                     "value": "[parameters('location')]"
