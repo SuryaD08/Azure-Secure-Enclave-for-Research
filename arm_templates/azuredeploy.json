@@ -2627,27 +2627,6 @@
                       "dependsOn": [
                         "[resourceId('Microsoft.DesktopVirtualization/applicationGroups', replace(variables('baseName'), '{rtype}', 'ag'))]"
                       ]
-                    },
-                    {
-                      "type": "Microsoft.Resources/deploymentScripts",
-                      "apiVersion": "2020-10-01",
-                      "name": "wait-for-token",
-                      "location": "[parameters('location')]",
-                      "identity": {
-                        "type": "UserAssigned"
-                      },
-                      "kind": "AzurePowerShell",
-                      "properties": {
-                        "azPowerShellVersion": "7.4",
-                        "timeout": "PT1M",
-                        "scriptContent": "Write-Host 'Waiting for token generation...'",
-                        "cleanupPreference": "OnSuccess",
-                        "retentionInterval": "P1D",
-                        "forceUpdateTag": "[utcNow()]"
-                      },
-                      "dependsOn": [
-                        "[resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp'))]"
-                      ]
                     }
                   ],
                   "outputs": {
@@ -3178,6 +3157,9 @@
                   "scope": "inner"
                 },
                 "mode": "Incremental",
+                "dependsOn" : [
+                  "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, replace(variables('baseName'), '{rtype}', 'rg')), 'Microsoft.Resources/deployments', replace(parameters('deploymentNameStructure'), '{rtype}', 'avd'))]"
+                ],
                 "parameters": {
                   "location": {
                     "value": "[parameters('location')]"
