@@ -2640,7 +2640,7 @@
                     },
                     "hostpoolStatus": {
                       "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').properties.provisioningState]"
+                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').provisioningState]"
                     },
                     "applicationGroupId": {
                       "type": "string",
@@ -2650,13 +2650,9 @@
                       "type": "string",
                       "value": "[resourceId('Microsoft.DesktopVirtualization/workspaces', replace(variables('baseName'), '{rtype}', 'ws'))]"
                     },
-                    "hostpoolRegistrationInfo": {
-                      "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo]"
-                    },
                     "hostpoolRegistrationToken": {
                       "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token]"
+                      "value": "[if(not(empty(reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token)), reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token, 'NoToken')]"
                     }
                   }
                 }
