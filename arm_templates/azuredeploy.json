@@ -2634,7 +2634,7 @@
                       "name": "wait-for-token",
                       "location": "[parameters('location')]",
                       "identity": {
-                        "type": "SystemAssigned"
+                        "type": "UserAssigned"
                       },
                       "kind": "AzurePowerShell",
                       "properties": {
