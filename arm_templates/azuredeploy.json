@@ -2627,12 +2627,33 @@
                       "dependsOn": [
                         "[resourceId('Microsoft.DesktopVirtualization/applicationGroups', replace(variables('baseName'), '{rtype}', 'ag'))]"
                       ]
+                    },
+                    {
+                      "type": "Microsoft.Resources/deploymentScripts",
+                      "apiVersion": "2020-10-01",
+                      "name": "wait-for-token",
+                      "location": "[parameters('location')]",
+                      "identity": {
+                        "type": "SystemAssigned"
+                      },
+                      "kind": "AzurePowerShell",
+                      "properties": {
+                        "azPowerShellVersion": "7.4",
+                        "timeout": "PT1M",
+                        "scriptContent": "Write-Host 'Waiting for token generation...'",
+                        "cleanupPreference": "OnSuccess",
+                        "retentionInterval": "P1D",
+                        "forceUpdateTag": "[utcNow()]"
+                      },
+                      "dependsOn": [
+                        "[resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp'))]"
+                      ]
                     }
                   ],
                   "outputs": {
                     "hostpoolRegistrationToken": {
                       "type": "string",
-                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfoToken]"
+                      "value": "[reference(resourceId('Microsoft.DesktopVirtualization/hostPools', replace(variables('baseName'), '{rtype}', 'hp')), '2024-04-03').registrationInfo.token]"
                     },
                     "hostpoolName": {
                       "type": "string",
@@ -3157,8 +3178,8 @@
                   "scope": "inner"
                 },
                 "mode": "Incremental",
-                "dependsOn" : [
-                  "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, replace(variables('baseName'), '{rtype}', 'rg')), 'Microsoft.Resources/deployments', replace(parameters('deploymentNameStructure'), '{rtype}', 'avd'))]"
+                "dependsOn": [
+                  "[resourceId('Microsoft.Resources/deployments/deploymentScripts', replace(replace(variables('namingStructure'), '{subwloadname}', 'access'), '{rtype}', 'rg'), replace(parameters('deploymentNameStructure'), '{rtype}', 'avd'),'wait-for-token')]"
                 ],
                 "parameters": {
                   "location": {
