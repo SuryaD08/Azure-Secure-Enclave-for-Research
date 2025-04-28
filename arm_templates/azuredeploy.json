@@ -3178,9 +3178,6 @@
                   "scope": "inner"
                 },
                 "mode": "Incremental",
-                "dependsOn": [
-                  "[resourceId('Microsoft.Resources/deployments/deploymentScripts', replace(replace(variables('namingStructure'), '{subwloadname}', 'access'), '{rtype}', 'rg'), replace(parameters('deploymentNameStructure'), '{rtype}', 'avd'),'wait-for-token')]"
-                ],
                 "parameters": {
                   "location": {
                     "value": "[parameters('location')]"
