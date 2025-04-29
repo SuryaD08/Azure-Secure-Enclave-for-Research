@@ -66,5 +66,5 @@ resource workspace 'Microsoft.DesktopVirtualization/workspaces@2021-09-03-previe
   tags: tags
 }
 
-output hostpoolRegistrationToken string = hostPool.listRegistrationTokens()[0].token
+output hostpoolRegistrationToken string = first(hostPool.listRegistrationTokens()).token
 output hostpoolName string = hostPool.name
