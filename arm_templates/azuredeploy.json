@@ -3334,7 +3334,7 @@
                             "value": "[parameters('hostPoolRegistrationToken')]"
                           },
                           "aadJoin": {
-                            "value": true
+                            "value": false
                           },
                           "intune": {
                             "value": false
