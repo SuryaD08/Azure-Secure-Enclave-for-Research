@@ -3283,7 +3283,7 @@
                             "value": false
                           },
                           "vmGalleryImageSKU": {
-                            "value": "win11-21h2-avd-m365"
+                            "value": "win11-23h2-avd-m365"
                           },
                           "rdshPrefix": {
                             "value": "[parameters('rdshPrefix')]"
