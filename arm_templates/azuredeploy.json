@@ -3340,13 +3340,13 @@
                             "value": false
                           },
                           "securityType": {
-                            "value": "TrustedLaunch"
+                            "value": "Standard"
                           },
                           "secureBoot": {
-                            "value": true
+                            "value": false
                           },
                           "vTPM": {
-                            "value": true
+                            "value": false
                           },
                           "vmImageVhdUri": {
                             "value": ""
