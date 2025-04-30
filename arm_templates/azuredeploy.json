@@ -3292,7 +3292,7 @@
                             "value": "[parameters('vmCount')]"
                           },
                           "rdshVMDiskType": {
-                            "value": "PremiumSSD_LRS"
+                            "value": "Premium_LRS"
                           },
                           "rdshVmSize": {
                             "value": "[parameters('rdshVmSize')]"
