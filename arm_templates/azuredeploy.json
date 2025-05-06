@@ -3334,7 +3334,7 @@
                             "value": "[parameters('hostPoolRegistrationToken')]"
                           },
                           "aadJoin": {
-                            "value": false
+                            "value": true
                           },
                           "intune": {
                             "value": false
@@ -3343,10 +3343,10 @@
                             "value": "Standard"
                           },
                           "secureBoot": {
-                            "value": false
+                            "value": true
                           },
                           "vTPM": {
-                            "value": false
+                            "value": true
                           },
                           "vmImageVhdUri": {
                             "value": ""
