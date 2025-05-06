@@ -3274,16 +3274,16 @@
                             "value": "[format('{0}-avail', parameters('rdshPrefix'))]"
                           },
                           "vmGalleryImageOffer": {
-                            "value": "office-365"
+                            "value": "dsvm-win-2022"
                           },
                           "vmGalleryImagePublisher": {
-                            "value": "microsoftwindowsdesktop"
+                            "value": "microsoft-dsvm"
                           },
                           "vmGalleryImageHasPlan": {
                             "value": false
                           },
                           "vmGalleryImageSKU": {
-                            "value": "win11-23h2-avd-m365"
+                            "value": "winserver-2022"
                           },
                           "rdshPrefix": {
                             "value": "[parameters('rdshPrefix')]"
@@ -3334,7 +3334,7 @@
                             "value": "[parameters('hostPoolRegistrationToken')]"
                           },
                           "aadJoin": {
-                            "value": true
+                            "value": false
                           },
                           "intune": {
                             "value": false
