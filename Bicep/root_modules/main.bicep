@@ -100,7 +100,7 @@ var workspaceComputeSubnetNsgRules = [
       access: 'Allow'
       sourceAddressPrefix: '*'
       sourcePortRange: '*'
-      destinationAddressPrefix: 'ServiceTag/AzureActiveDirectory'
+      destinationAddressPrefix: 'AzureActiveDirectory'
       destinationPortRange: '443'
     }
   }
