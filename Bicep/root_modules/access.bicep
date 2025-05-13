@@ -26,22 +26,6 @@ var avdSubnets = {
     serviceEndpoints: []
   }
 }
-
-var avdSubnetNsgRules = [
-  {
-    name: 'AllowOutboundAAD'
-    properties: {
-      direction: 'Outbound'
-      priority: 110
-      protocol: 'Tcp'
-      access: 'Allow'
-      sourceAddressPrefix: '*'
-      sourcePortRange: '*'
-      destinationAddressPrefix: 'AzureActiveDirectory'
-      destinationPortRange: '443'
-    }
-  }
-]
 // Create a separate resource group for the VMs
 resource avdResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: replace(baseName, '{rtype}', 'rg')
@@ -71,9 +55,6 @@ module vnet '../child_modules/network.bicep' = {
     // This replacement ensures that VNet name for the AVD VNet is different than the workspace VNet
     namingStructure: replace(namingStructure, '{rtype}', '{rtype}-avd')
     subnets: avdSubnets
-    nsgSecurityRules: [
-      avdSubnetNsgRules
-    ]
     // Do not specify hubVirtualNetworkId here, because that would only initiate the peering
     // The next module will create a bi-directional peering
   }
