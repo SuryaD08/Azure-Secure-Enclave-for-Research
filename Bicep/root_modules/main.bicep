@@ -92,6 +92,19 @@ var workspaceComputeSubnetNsgRules = [
     }
   }
   {
+    name: 'AllowOutboundAAD'
+    properties: {
+      direction: 'Outbound'
+      priority: 110
+      protocol: 'TCP'
+      access: 'Allow'
+      sourceAddressPrefix: '*'
+      sourcePortRange: '*'
+      destinationAddressPrefix: 'ServiceTag/AzureActiveDirectory'
+      destinationPortRange: '443'
+    }
+  }
+  {
     name: 'Block_Internet_Access'
     properties: {
       direction: 'Outbound'
