@@ -2564,7 +2564,7 @@
                   "resources": [
                     {
                       "type": "Microsoft.DesktopVirtualization/hostPools",
-                      "apiVersion": "2024-04-03",
+                      "apiVersion": "2019-12-10-preview",
                       "name": "[replace(variables('baseName'), '{rtype}', 'hp')]",
                       "location": "[parameters('location')]",
                       "properties": {
@@ -3274,7 +3274,7 @@
                             "value": "[format('{0}-avail', parameters('rdshPrefix'))]"
                           },
                           "vmGalleryImageOffer": {
-                            "value": "office-365"
+                            "value": "windows-11"
                           },
                           "vmGalleryImagePublisher": {
                             "value": "microsoftwindowsdesktop"
@@ -3283,7 +3283,7 @@
                             "value": false
                           },
                           "vmGalleryImageSKU": {
-                            "value": "win11-23h2-avd-m365"
+                            "value": "win11-23h2-ent"
                           },
                           "rdshPrefix": {
                             "value": "[parameters('rdshPrefix')]"
@@ -3292,7 +3292,7 @@
                             "value": "[parameters('vmCount')]"
                           },
                           "rdshVMDiskType": {
-                            "value": "Premium_LRS"
+                            "value": "StandardSSD_LRS"
                           },
                           "rdshVmSize": {
                             "value": "[parameters('rdshVmSize')]"
@@ -3340,7 +3340,7 @@
                             "value": false
                           },
                           "securityType": {
-                            "value": "Standard"
+                            "value": "TrustedLaunch"
                           },
                           "secureBoot": {
                             "value": true
