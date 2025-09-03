@@ -49,7 +49,7 @@
     },
     "rdshVmSize": {
       "type": "string",
-      "defaultValue": "Standard_D2as_v5"
+      "defaultValue": "Standard_D4as_v5"
     },
     "vmCount": {
       "type": "int",
@@ -3274,7 +3274,7 @@
                             "value": "[format('{0}-avail', parameters('rdshPrefix'))]"
                           },
                           "vmGalleryImageOffer": {
-                            "value": "windows-11"
+                            "value": "office-365"
                           },
                           "vmGalleryImagePublisher": {
                             "value": "microsoftwindowsdesktop"
@@ -3283,7 +3283,7 @@
                             "value": false
                           },
                           "vmGalleryImageSKU": {
-                            "value": "win11-22h2-avd"
+                            "value": "win10-22h2-avd-m365-g2"
                           },
                           "rdshPrefix": {
                             "value": "[parameters('rdshPrefix')]"
